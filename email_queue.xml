@@ -23,19 +23,19 @@
         <record model="ir.action.act_window.domain" id="act_email_queue_form_domain_outbox">
             <field name="name">Outbox</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('state', '=', 'outbox')]</field>
+            <field name="domain" eval="[('state', '=', 'outbox')]" pyson="1"/>
             <field name="act_window" ref="act_email_queue_form"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_email_queue_form_domain_sent">
             <field name="name">Sent</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('state', '=', 'sent')]</field>
+            <field name="domain" eval="[('state', '=', 'sent')]" pyson="1"/>
             <field name="act_window" ref="act_email_queue_form"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_email_queue_form_domain_failed">
             <field name="name">Failed</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('state', '=', 'failed')]</field>
+            <field name="domain" eval="[('state', '=', 'failed')]" pyson="1"/>
             <field name="act_window" ref="act_email_queue_form"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_email_queue_form_domain_all">

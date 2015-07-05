@@ -5,14 +5,7 @@
     :copyright: (C) 2014 by Openlabs Technologies & Consulting (P) Limited
     :license: BSD, see LICENSE for more details.
 """
-import sys
 import time
-import os
-DIR = os.path.abspath(os.path.normpath(os.path.join(
-    __file__, '..', '..', '..', '..', '..', 'trytond'
-)))
-if os.path.isdir(DIR):
-    sys.path.insert(0, os.path.dirname(DIR))
 import unittest
 import threading
 import Queue
@@ -22,7 +15,8 @@ from mock import patch
 from pretend import stub
 from faker import Faker
 
-from trytond.tests.test_tryton import POOL, USER, DB_NAME, CONTEXT
+from trytond.tests.test_tryton import POOL, USER, DB_NAME, CONTEXT, \
+    ModuleTestCase
 from trytond.transaction import Transaction
 from trytond import backend
 import trytond.tests.test_tryton
@@ -43,7 +37,7 @@ class BadSMTPServerException(Exception):
     pass
 
 
-class TestEmailQueue(unittest.TestCase):
+class TestEmailQueue(ModuleTestCase):
     '''
     Test Email Queue
     '''
